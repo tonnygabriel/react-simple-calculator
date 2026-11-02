@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.nav-bar{
+  padding-left: 15px;
+  display: flex;
+  height: 10vh;
+  background-color: #21222A;
+  color: #61DAFB;
+  align-items: center;
+  gap: 15px;
+}
+.image{
+  width: 25px;
+}
+.main{
+  background-color: #282D35;
+  color: white;
+  padding-left: 25px;
+  background-image: url(./assets/half-react.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+.facts-list > li{
+  margin-block: 10px;
+}
+
+.facts-list > li::marker {
+  color: #61DAFB;
+  font-size: 1.25rem;
+}

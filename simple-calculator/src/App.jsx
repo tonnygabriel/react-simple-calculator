@@ -9,12 +9,24 @@ export default function App() {
 
   let obj = useRef({});
 
-  // function handleclick(e){
-
-  // }
+  function negativePositive(e){
+    let arr = output.current.split("");
+    if(arr[0] === "-"){
+      arr.splice(0, 1);
+    }else{
+      arr.unshift("-");
+    }
+    output.current = arr.join("");
+    setNum(Number(output.current));
+  }
 
   function handleDigit(e){
-    output.current = output.current + e.target.innerText;
+    if(e.target.innerText === "." && output.current.includes(".") === true){
+      output.current = output.current;
+    }else{
+      output.current = output.current + e.target.innerText;
+    }
+    
     setNum(Number(output.current));
   }
 
@@ -33,12 +45,9 @@ export default function App() {
     obj.current = {};
   };
 
-  // const addition = () =>{
-  //   obj.current["num1"] = output.current;
-  //   output.current = "";
-  //   setNum(0);
-  //   console.log(obj.current);
-  // };
+  // function percentage(){
+  //   setNum(Number(output.current) /100)
+  // }
 
 
   const equal = () =>{
@@ -51,7 +60,7 @@ export default function App() {
 
       //percent
       case "%":
-        result = obj.current["num1"] / 100;
+        result = Number(obj.current["num1"]) % Number(obj.current["num2"]);
         break;
       //diviison
       case "÷":
@@ -89,7 +98,7 @@ export default function App() {
       <button className="reset" onClick={reset}>
         AC
       </button>
-      <button className="negative">
+      <button className="negative" onClick={negativePositive}>
         +/-
       </button>
       <button className="modulus" onClick={op}>
@@ -116,7 +125,7 @@ export default function App() {
       <button className="addition bg-amber-600 text-white" onClick={op}>+</button>
 
       <button className="zero col-span-2" onClick={handleDigit}>0</button>
-      <button>.</button>
+      <button onClick={handleDigit}>.</button>
       <button className="equal bg-amber-600 text-white" onClick={equal}>=</button>
     </div>
   )

@@ -274,6 +274,12 @@
 .container {
   background-color: white;
 }
+.container, .container * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="rgba(102,99,99,0.596)"/></svg>'), auto;
+}
+.container:active, .container :active {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="black" fill="rgba(51,50,50,0.9)"/></svg>'), auto;
+}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;
